@@ -4,7 +4,7 @@ vector<vector<int>> threeSum(vector<int>& arr) {
     int n=arr.size();
 
     for (int i = 0; i < n - 2; i++) {
-        // Avoid duplicates for the first element
+        
         if (i > 0 && arr[i] == arr[i - 1]) {
             continue;
         }
@@ -18,7 +18,7 @@ vector<vector<int>> threeSum(vector<int>& arr) {
             if (sum == target) {
                 ans.push_back({arr[i], arr[start], arr[end]});
 
-                // Move start and end to the next different elements to avoid duplicates
+                // M avoid duplicates
                 while (start < end && arr[start] == arr[start + 1]) start++;
                 while (start < end && arr[end] == arr[end - 1]) end--;
 
