@@ -1,5 +1,5 @@
 
-
+#first naive approach with space complexity of O(n)
 public:
     void moveZeroes(vector<int>& arr) {
         vector<int>temp(arr.size(),0);
@@ -25,6 +25,8 @@ public:
         
     }
 };
+
+#second two pointers approach 
 
 
 #include <vector>
