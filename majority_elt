@@ -1,0 +1,72 @@
+(* //brute approach in O(n^2) *)
+int majorityElement(vector<int>& arr) {
+        int n=arr.size();
+        
+        for(int i=0;i<n;i++){
+            int count=0;
+            for(int j=0;j<n;j++){
+                if(arr[i]==arr[j]){
+                    count+=1;
+
+                }
+            }
+
+            if(count>(n/2)){
+                return arr[i];
+
+            }
+            
+        }
+        return -1;
+        
+        
+}
+
+(* //second better approach by sorting the array  *)
+int majorityElement(vector<int>& arr) {
+        sort(arr.begin(),arr.end());
+        int freq=1;
+        int ans=arr[0];
+        for(int i=1;i<arr.size();i++){
+            if(arr[i]==arr[i-1]){
+                freq++;
+
+            }
+            else{
+                freq=1;
+                ans=arr[i];
+            }
+
+            if(freq>(arr.size()/2)){
+                return ans;
+
+            }
+
+        } 
+        return ans ;   
+    }
+(* //moore's voting algorithim  *)
+
+int majorityElement(vector<int>& arr) {
+        
+        int freq=0;
+        int n=arr.size();
+        int ans=0;
+        for(int i=0;i<n;i++){
+            if(freq==0){
+                ans=arr[i];
+
+            }
+            
+            if(arr[i]==ans){
+                freq++;
+
+            }
+            else{
+                freq--;
+            }
+        }
+
+        
+        return ans;   
+    }
