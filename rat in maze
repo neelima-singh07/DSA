@@ -1,0 +1,31 @@
+void rat_in_maze(vector<vector<int>> &mat,vector<string>&ans,string path,int r,int c,int n,vector<vector<bool>>&vis){
+        if(r<0 ||c<0||r>=n||c>=n|| mat[r][c]==0||vis[r][c]==true ){
+            return;
+            
+        }
+        if(r==n-1 && c==n-1){
+            ans.push_back(path);
+            return;
+            
+        }
+        vis[r][c]=true;
+        
+        
+        //down,up,right,left
+        rat_in_maze(mat,ans,path+'D',r+1,c,n,vis);
+        rat_in_maze(mat,ans,path+'U',r-1,c,n,vis);
+        rat_in_maze(mat,ans,path+'R',r,c+1,n,vis);
+        rat_in_maze(mat,ans,path+'L',r,c-1,n,vis);
+        vis[r][c]=false;
+    }
+    vector<string> findPath(vector<vector<int>> &mat) {
+        // code here
+        int n=mat.size();
+        int r=0;
+        int c=0;
+        vector<vector<bool>>vis(n,vector<bool>(n,false));
+        vector<string>ans;
+        string path;
+        rat_in_maze(mat,ans,path,r,c,n,vis);
+        return ans;
+  }
