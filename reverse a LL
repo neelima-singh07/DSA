@@ -1,0 +1,18 @@
+# see apna cllg video for better clarity
+ListNode* reverseList(ListNode* head) {
+        ListNode*curr=head; 
+   # 3 ptr lelo curr prev and head
+        ListNode*prev=NULL;
+        ListNode*next=NULL;
+  # loop lagao jab tak curr null na ho
+        while(curr!=NULL){
+          # pehle next ko assign kro so, address lost na ho saare step issi series me ho 
+            next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
+
+        }
+        return prev;
+        
+}
