@@ -1,0 +1,20 @@
+bool isIsomorphic(string s, string t) {
+         if (s.size() != t.size()) return false;
+
+        unordered_map<char, char> mapS;
+        unordered_map<char, char> mapT;
+
+        for (int i = 0; i < s.size(); i++) {
+            if (mapS.find(s[i]) == mapS.end() && mapT.find(t[i]) == mapT.end()) {
+               mapS[s[i]] = t[i];
+               mapT[t[i]] = s[i];
+            } 
+            else {
+                if (mapS[s[i]] != t[i] || mapT[t[i]] != s[i]) {
+                    return false;
+                }
+            }
+        }    
+        return true;
+        
+    }
