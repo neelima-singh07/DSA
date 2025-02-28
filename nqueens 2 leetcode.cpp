@@ -1,4 +1,4 @@
-same as nqueens 1
+//same as nqueens 1
 
 bool issafe(vector<string> &board,int i,int j,int n){
         //row check
