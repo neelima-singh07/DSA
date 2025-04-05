@@ -19,7 +19,7 @@ public:
 
     // This function handles the deletion logic and re-arrangement of nodes
     // when the node to be deleted has both left and right children.
-    TreeNode* helper(TreeNode* root) {
+    TreeNode* helper(TreeNode* root) {  //if ypu want reverse left node to be the new node after delteion replace right<->left in helper and findleftmost function 
         // If only right child exists, return it (bypassing the current node)
         if (root->left == nullptr) return root->right;
 
